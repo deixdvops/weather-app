@@ -15,6 +15,15 @@ pipeline{
               args '-u root:root'
             }
            }
+            steps {
+                sh '''
+            id
+            cd weatherapp/auth/src/main
+            go build 
+            cd -
+            ls -la
+                '''
+            }
         }
     }
 }
