@@ -6,33 +6,15 @@ pipeline{
         timeout (time: 60, unit: 'MINUTES')
         timestamps()
       }
-    stages{
-        stage("A"){
-            steps{
-                echo "========executing A========"
+    stages {
+
+        stage('Test auth') {
+	     agent {
+            docker {
+              image 'golang:alpine'
+              args '-u root:root'
             }
-            post{
-                always{
-                    echo "========always========"
-                }
-                success{
-                    echo "========A executed successfully========"
-                }
-                failure{
-                    echo "========A execution failed========"
-                }
-            }
-        }
-    }
-    post{
-        always{
-            echo "========always========"
-        }
-        success{
-            echo "========pipeline executed successfully ========"
-        }
-        failure{
-            echo "========pipeline execution failed========"
+           }
         }
     }
 }
