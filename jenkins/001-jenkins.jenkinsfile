@@ -3,12 +3,12 @@ pipeline {
     options {
         // Global options go here
     }
-    environments {
+   /* environments {
         // Environment-specific configurations go here
     }
     parameters {
         // Parameters definition goes here
-    }
+    }*/
     
     stages {
         stage('Build') {
